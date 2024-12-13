@@ -1,0 +1,55 @@
+{
+  "trainings": [
+    {
+      "id": 1,
+      "training_name": "Node Js Training",
+      "date": "Oct 11-13 , 2024",
+      "time": "8 pm - 12 am",
+      "location": "Delhi",
+      "trainer_name": "Rahul Kushwaha",
+      "trainer_image": "assets/trainer_image.png",
+      "training_image": "assets/training_image.jpeg"
+    },
+    {
+      "id": 2,
+      "training_name": "Flutter Training",
+      "date": "Oct 11-13 , 2024",
+      "time": "8 pm - 12 am",
+      "location": "Delhi",
+      "trainer_name": "Raushan Kumar",
+      "trainer_image": "assets/trainer_image.png",
+      "training_image": "assets/training_image.jpeg"
+    },
+    {
+      "id": 3,
+      "training_name": "Dev Ops Training",
+      "date": "Oct 11-13 , 2024",
+      "time": "8 pm - 12 am",
+      "location": "Delhi",
+      "trainer_name": "Imtiaj Haroon",
+      "trainer_image": "assets/trainer_image.png",
+      "training_image": "assets/training_image.jpeg"
+    },
+    {
+      "id": 4,
+      "training_name": "Java Backend Training",
+      "date": "Oct 11-13 , 2024",
+      "time": "8 pm - 12 am",
+      "location": "Delhi",
+      "trainer_name": "Ijhar Ansari",
+      "trainer_image": "assets/trainer_image.png",
+      "training_image": "assets/training_image.jpeg"
+    },
+    {
+      "id": 5,
+      "training_name": ".Net Training",
+      "date": "Oct 11-13 , 2024",
+      "time": "8 pm - 12 am",
+      "location": "Delhi",
+      "trainer_name": "Richard Jhonson",
+      "trainer_image": "assets/trainer_image.png",
+      "training_image": "assets/training_image.jpeg"
+    }
+
+  ]
+}
