@@ -6,9 +6,10 @@
       "date": "Oct 11-13 , 2024",
       "time": "8 pm - 12 am",
       "location": "Delhi",
+      "price": "1245",
       "trainer_name": "Rahul Kushwaha",
-      "trainer_image": "assets/trainer_image.png",
-      "training_image": "assets/training_image.jpeg"
+      "trainer_image": "assets/images/trainer_image.png",
+      "training_image": "assets/images/training_image.jpg"
     },
     {
       "id": 2,
@@ -16,9 +17,10 @@
       "date": "Oct 11-13 , 2024",
       "time": "8 pm - 12 am",
       "location": "Delhi",
+      "price": "5000",
       "trainer_name": "Raushan Kumar",
-      "trainer_image": "assets/trainer_image.png",
-      "training_image": "assets/training_image.jpeg"
+      "trainer_image": "assets/images/trainer_image.png",
+      "training_image": "assets/images/training_image.jpg"
     },
     {
       "id": 3,
@@ -26,9 +28,10 @@
       "date": "Oct 11-13 , 2024",
       "time": "8 pm - 12 am",
       "location": "Delhi",
+      "price": "5599",
       "trainer_name": "Imtiaj Haroon",
-      "trainer_image": "assets/trainer_image.png",
-      "training_image": "assets/training_image.jpeg"
+      "trainer_image": "assets/images/trainer_image.png",
+      "training_image": "assets/images/training_image.jpg"
     },
     {
       "id": 4,
@@ -36,9 +39,10 @@
       "date": "Oct 11-13 , 2024",
       "time": "8 pm - 12 am",
       "location": "Delhi",
+      "price": "2000",
       "trainer_name": "Ijhar Ansari",
-      "trainer_image": "assets/trainer_image.png",
-      "training_image": "assets/training_image.jpeg"
+      "trainer_image": "assets/images/trainer_image.png",
+      "training_image": "assets/images/training_image.jpg"
     },
     {
       "id": 5,
@@ -46,9 +50,10 @@
       "date": "Oct 11-13 , 2024",
       "time": "8 pm - 12 am",
       "location": "Delhi",
+      "price": "4599",
       "trainer_name": "Richard Jhonson",
-      "trainer_image": "assets/trainer_image.png",
-      "training_image": "assets/training_image.jpeg"
+      "trainer_image": "assets/images/trainer_image.png",
+      "training_image": "assets/images/training_image.jpg"
     }
 
   ]
