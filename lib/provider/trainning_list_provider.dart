@@ -10,6 +10,32 @@ class TrainingListProvider with ChangeNotifier {
   List<Training> get trainingData => _filteredTrainingData;
   List<Training> get crausalTrainingData => _allTrainingData;
 
+  int selectedTabIndex = 1;
+  Map<String, bool> locationFilters = {
+    'Delhi': false,
+    'Bangalore': false,
+    'Pune': false,
+    'Hyderabad': false,
+    'Noida': false,
+  };
+  String _searchQuery = '';
+  String get searchQuery => _searchQuery;
+
+  void updateTabIndex(int index) {
+    selectedTabIndex = index;
+    notifyListeners();
+  }
+
+  void updateLocationFilters(String location, bool isSelected) {
+    locationFilters[location] = isSelected;
+    notifyListeners();
+  }
+
+  void updateSearchQuery(String query) {
+    _searchQuery = query;
+    notifyListeners();
+  }
+
   Future<void> getTrainingListItems() async {
     try {
       String rootData =
@@ -25,9 +51,12 @@ class TrainingListProvider with ChangeNotifier {
   }
 
   void filterUsingTrainerName(String query) {
+    print(1);
     if (query.isEmpty) {
+      print(2);
       _resetFilteredList();
     } else {
+      print(3);
       _filteredTrainingData = _allTrainingData.where((training) {
         return training.trainer_name
                 ?.toLowerCase()
@@ -35,6 +64,7 @@ class TrainingListProvider with ChangeNotifier {
             false;
       }).toList();
     }
+    print(4);
     notifyListeners();
   }
 
@@ -65,5 +95,6 @@ class TrainingListProvider with ChangeNotifier {
 
   void _resetFilteredList() {
     _filteredTrainingData = List.from(_allTrainingData);
+    notifyListeners();
   }
 }

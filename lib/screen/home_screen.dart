@@ -99,7 +99,11 @@ class HomeScreen extends StatelessWidget {
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(0.0)),
                     ),
-                    builder: (context) => const FilterContent(),
+                    builder: (context) => GestureDetector(
+                        onTap: () {
+                          FocusScope.of(context).unfocus();
+                        },
+                        child: FilterContent()),
                   );
                 },
                 child: Container(
@@ -137,6 +141,8 @@ class HomeScreen extends StatelessWidget {
           Expanded(
             child: Consumer<TrainingListProvider>(
               builder: (context, provider, child) {
+                print('provider.trainingData.length');
+                print(provider.trainingData.length);
                 return ListView.builder(
                   scrollDirection: Axis.vertical,
                   physics: const AlwaysScrollableScrollPhysics(),
