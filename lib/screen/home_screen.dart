@@ -4,10 +4,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:my_trainning_aaps/model/trainning_model.dart';
 import 'package:my_trainning_aaps/provider/trainning_list_provider.dart';
 import 'package:provider/provider.dart';
+import 'filter_content_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  CarouselSliderController buttonCarouselController =
-      CarouselSliderController();
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 60.0),
                 child: Consumer<TrainingListProvider>(
                   builder: (context, provider, child) {
-                    final data = provider.trainingData;
+                    final data = provider.crausalTrainingData;
                     return CarouselSlider.builder(
                       itemCount: data.length,
                       itemBuilder: (BuildContext context, int itemIndex,
@@ -81,7 +81,6 @@ class HomeScreen extends StatelessWidget {
                         enlargeFactor: 0.3,
                         scrollDirection: Axis.horizontal,
                       ),
-                      carouselController: buttonCarouselController,
                     );
                   },
                 ),
@@ -93,7 +92,16 @@ class HomeScreen extends StatelessWidget {
             child: Align(
               alignment: Alignment.topLeft,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(0.0)),
+                    ),
+                    builder: (context) => const FilterContent(),
+                  );
+                },
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -135,158 +143,7 @@ class HomeScreen extends StatelessWidget {
                   itemCount: provider.trainingData.length,
                   itemBuilder: (context, index) {
                     final data = provider.trainingData[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0, vertical: 8.0),
-                      child: Card(
-                        elevation: 3,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    flex: 2,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          data.date.toString(),
-                                          style: const TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          data.time.toString(),
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 8),
-                                        Text(
-                                          data.location.toString(),
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colors.black54,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.only(right: 8.0),
-                                    child: DottedLine(
-                                      dashColor: Colors.grey,
-                                      direction: Axis.vertical,
-                                      alignment: WrapAlignment.center,
-                                      lineLength: 150,
-                                      lineThickness: 2.0,
-                                      dashLength: 8.0,
-                                    ),
-                                  ),
-                                  Flexible(
-                                    flex: 4,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const Text(
-                                          'Filling Fast!',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.redAccent,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          data.training_name ?? 'Training Name',
-                                          style: const TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'TimeNewRoman',
-                                          ),
-                                        ),
-                                        const SizedBox(height: 8),
-                                        Row(
-                                          children: [
-                                            const CircleAvatar(
-                                              radius: 16,
-                                              backgroundImage: AssetImage(
-                                                  'assets/images/trainer_image.png'),
-                                            ),
-                                            const SizedBox(width: 8),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                const Text(
-                                                  'Keynote Speaker',
-                                                  style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                    fontFamily: 'TimeNewRoman',
-                                                  ),
-                                                ),
-                                                Text(
-                                                  data.trainer_name ??
-                                                      'Trainer Name',
-                                                  style: const TextStyle(
-                                                    fontSize: 12,
-                                                    fontFamily: 'TimeNewRoman',
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Align(
-                                          alignment: Alignment.bottomRight,
-                                          child: ElevatedButton(
-                                            onPressed: () {},
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: Colors
-                                                  .redAccent, // Button background color
-                                              foregroundColor:
-                                                  Colors.white, // Text color
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                horizontal:
-                                                    24, // Horizontal padding
-                                                vertical: 2, // Vertical padding
-                                              ),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        5), // Rounded corners
-                                              ),
-                                            ),
-                                            child: const Text('Enroll Now'),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
+                    return trainingCardWidget(data);
                   },
                 );
               },
@@ -361,6 +218,150 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget trainingCardWidget(Training data) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Flexible(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          data.date.toString(),
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          data.time.toString(),
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          data.location.toString(),
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8.0),
+                    child: DottedLine(
+                      dashColor: Colors.grey,
+                      direction: Axis.vertical,
+                      alignment: WrapAlignment.center,
+                      lineLength: 150,
+                      lineThickness: 2.0,
+                      dashLength: 8.0,
+                    ),
+                  ),
+                  Flexible(
+                    flex: 4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Filling Fast!',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.redAccent,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          data.training_name ?? 'Training Name',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'TimeNewRoman',
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              radius: 16,
+                              backgroundImage:
+                                  AssetImage('assets/images/trainer_image.png'),
+                            ),
+                            const SizedBox(width: 8),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Keynote Speaker',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontFamily: 'TimeNewRoman',
+                                  ),
+                                ),
+                                Text(
+                                  data.trainer_name ?? 'Trainer Name',
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontFamily: 'TimeNewRoman',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.redAccent,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 24,
+                                vertical: 2,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                            child: const Text('Enroll Now'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
