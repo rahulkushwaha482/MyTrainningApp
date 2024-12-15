@@ -1,16 +1,12 @@
 # my_trainning_aaps
 
-A new Flutter project.
+# How to Run the Code
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Steps:-
+1) We need to install Flutter Sdk and Android Studio or (VsCode).
+2) We need to install Plugins for FlutterSdk .
+3) Then we need clone this repo https://github.com/rahulkushwaha482/MyTrainningApp.git
+4) We need to pub.get in terminal or pubspecpec.yaml file 
+5) Connect the Android Studio or Vs Code with Device in which the app should run
+6) Select the connected device
+7) Then run app .

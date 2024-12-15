@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:my_trainning_aaps/provider/trainning_list_provider.dart';
 
 class FilterContent extends StatelessWidget {
+  const FilterContent({super.key});
+
   Widget _buildLocationFilter(TrainingListProvider trainingProvider) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,26 +76,13 @@ class FilterContent extends StatelessWidget {
           onChanged: (query) {
             provider.updateSearchQuery(query); // Save query
           },
-          // onChanged: (query) {
-          //   provider.updateSearchQuery(query);
-          //   if (selectedTabIndex == 2) {
-          //     provider.filterUsingTrainingName(provider.searchQuery);
-          //   } else if (selectedTabIndex == 3) {
-          //     provider.filterUsingTrainerName(provider.searchQuery);
-          //   } else {
-          //     //provider.filterUsingTrainerName(provider.searchQuery);
-          //   }
-          // },
           onSubmitted: (query) {
             provider.updateSearchQuery(query);
             if (selectedTabIndex == 2) {
               provider.filterUsingTrainingName(provider.searchQuery);
             } else if (selectedTabIndex == 3) {
               provider.filterUsingTrainerName(provider.searchQuery);
-            } else {
-              //provider.filterUsingTrainerName(provider.searchQuery);
-            }
-            // FocusScope.of().unfocus(); // Dismiss the keyboard
+            } else {}
           },
         ),
       ],
@@ -135,7 +124,6 @@ class FilterContent extends StatelessWidget {
             Expanded(
               child: Row(
                 children: [
-                  // Left Navigation Tabs
                   Container(
                     width: 130,
                     color: Colors.grey[200],

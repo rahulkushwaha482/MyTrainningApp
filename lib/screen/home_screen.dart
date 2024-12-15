@@ -168,7 +168,7 @@ class HomeScreen extends StatelessWidget {
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(0),
                 child: Image.asset(
-                  data.training_image.toString(),
+                  data.trainingImage.toString(),
                   fit: BoxFit.fill,
                 )),
           ),
@@ -180,7 +180,7 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  data.training_name.toString(),
+                  data.trainingName.toString(),
                   style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -303,7 +303,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          data.training_name ?? 'Training Name',
+                          data.trainingName ?? 'Training Name',
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -332,7 +332,7 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  data.trainer_name ?? 'Trainer Name',
+                                  data.trainerName ?? 'Trainer Name',
                                   style: const TextStyle(
                                     fontSize: 12,
                                     fontFamily: 'TimeNewRoman',

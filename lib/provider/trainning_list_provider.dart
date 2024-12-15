@@ -26,11 +26,6 @@ class TrainingListProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void updateLocationFilters(String location, bool isSelected) {
-    locationFilters[location] = isSelected;
-    notifyListeners();
-  }
-
   void updateSearchQuery(String query) {
     _searchQuery = query;
     notifyListeners();
@@ -43,7 +38,7 @@ class TrainingListProvider with ChangeNotifier {
       Map<String, dynamic> data = json.decode(rootData);
       var listData = TrainingModel.fromJson(data);
       _allTrainingData = listData.trainings ?? [];
-      _filteredTrainingData = List.from(_allTrainingData); // Initially show all
+      _filteredTrainingData = List.from(_allTrainingData);
       notifyListeners();
     } catch (e) {
       debugPrint('Error loading training data: $e');
@@ -58,7 +53,7 @@ class TrainingListProvider with ChangeNotifier {
     } else {
       print(3);
       _filteredTrainingData = _allTrainingData.where((training) {
-        return training.trainer_name
+        return training.trainerName
                 ?.toLowerCase()
                 .contains(query.toLowerCase()) ??
             false;
@@ -73,7 +68,7 @@ class TrainingListProvider with ChangeNotifier {
       _resetFilteredList();
     } else {
       _filteredTrainingData = _allTrainingData.where((training) {
-        return training.training_name
+        return training.trainingName
                 ?.toLowerCase()
                 .contains(query.toLowerCase()) ??
             false;

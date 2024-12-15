@@ -23,49 +23,49 @@ class TrainingModel {
 
 class Training {
   int? id;
-  String? training_name;
+  String? trainingName;
   String? date;
   String? time;
   String? location;
   String? price;
-  String? trainer_name;
-  String? trainer_image;
-  String? training_image;
+  String? trainerName;
+  String? trainerImage;
+  String? trainingImage;
 
   Training(
       {this.id,
-      this.training_name,
+      this.trainingName,
       this.date,
       this.time,
       this.location,
       this.price,
-      this.trainer_name,
-      this.trainer_image,
-      this.training_image});
+      this.trainerName,
+      this.trainerImage,
+      this.trainingImage});
 
   Training.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    training_name = json['training_name'];
+    trainingName = json['training_name'];
     date = json['date'];
     time = json['time'];
     location = json['location'];
     price = json['price'];
-    trainer_name = json['trainer_name'];
-    trainer_image = json['trainer_image'];
-    training_image = json['training_image'];
+    trainerName = json['trainer_name'];
+    trainerImage = json['trainer_image'];
+    trainingImage = json['training_image'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['training_name'] = training_name;
+    data['training_name'] = trainingName;
     data['date'] = date;
     data['time'] = time;
     data['location'] = location;
     data['price'] = price;
-    data['trainer_name'] = trainer_name;
-    data['trainer_image'] = trainer_image;
-    data['training_image'] = training_image;
+    data['trainer_name'] = trainerName;
+    data['trainer_image'] = trainerImage;
+    data['training_image'] = trainingImage;
     return data;
   }
 }
